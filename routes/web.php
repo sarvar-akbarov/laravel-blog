@@ -19,18 +19,3 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('posts/{post:slug}', [PostController::class, 'view'])->name('view');
-
-// Route::get('categories/{category:slug}', function(Category $category){
-//     return view('posts.index', [
-//         'posts' => $category->posts,
-//         'currentCategory' => $category,
-//         'categories' => Category::all()
-//     ]);
-// });
-
-Route::get('users/{author:username}', function(User $author){
-    return view('posts.index', [
-        'posts' => $author->posts,
-        'categories' => Category::all()
-    ]);
-});
